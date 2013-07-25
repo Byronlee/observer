@@ -20,7 +20,9 @@ Or install it yourself as:
 
 ## Usage
 
-Define a abservable
+Define a `abservable`, like this
+
+    require 'observer'
 
     class Publish
       include Observable
@@ -29,12 +31,15 @@ Define a abservable
     end
 
 
-Define a observer, you only implement a method named update in your observer class
+Define a `observer`, any Class only implementing a method named `update`
    
     class Subscribe
+
+      # publish params must be required
+      # and you can define more one params after first param
       def update publish, msg
         # coding after observable changed
-	p "receive message: #{msg}"
+        p "receive message: #{msg}"
       end
     end
 
@@ -44,12 +49,16 @@ Add observer
     subscribe = Subscribe.new
     observers = publish.add_observer(subscribe)
 
+Remove observer
+
+    observers = publish.remove_observer(subscribe)
+
 Observable changed
 
     publish.changed
     publish.notify_observers(self, "publish have changed!")
 
-Observers receive notify from observalbe , update in Subscribe Class will be called.  
+Observers receive notify from observabe , update in Subscribe Class will be called.  
     
     # => receive message: publish have changed!
 
