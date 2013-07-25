@@ -1,5 +1,6 @@
 require "observer/version"
+require "observer/observable"
 
 module Observer
-  # Your code goes here...
+
 end
