@@ -1,4 +1,4 @@
-require "#{File.dirname(__FILE__)}/../../lib/observer/observable"
+require "#{File.dirname(__FILE__)}/../../lib/observer"
 
 class Publish
   include Observable
