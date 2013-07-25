@@ -30,6 +30,8 @@ module Observable
     if changed? 
       @observers.each do |o|
 	begin
+	  # maybe have many publishes
+	  # observer know which publish by self
 	  o.update self, *arg
         rescue NoMethodError
 	  raise "#{o.class.to_s} Observer hava no update method"
