@@ -54,7 +54,7 @@ Remove observer
 ```ruby
 observers = publish.remove_observer(subscribe)
 ```
-Observable changed
+Notify observers when observable changed
 ```ruby
 publish.changed
 publish.notify_observers(self, "publish have changed!")
