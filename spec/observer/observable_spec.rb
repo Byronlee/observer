@@ -1,5 +1,6 @@
 require "#{File.dirname(__FILE__)}/../fixtures/publish"
 require "#{File.dirname(__FILE__)}/../fixtures/subscribe"
+require "#{File.dirname(__FILE__)}/../fixtures/subscribe_no_update"
 
 describe Observable do
 
@@ -36,6 +37,33 @@ describe Observable do
 
     it "return nil when oberser does not exist" do
       @publish.remove_observer(@subscribe).should be_nil
+    end
+  end
+
+  context "observable can notify observers when observale changed" do
+    before :each do
+      @publish.changed   
+      @publish.notify_observers('publish have changed !')
+    end
+
+    it "observer should receive notify message" do
+      @subscribe.msg.should == 'publish have changed !'
+    end
+
+    it "observer should receive instance of Observable" do
+      @subscribe.publish.should be_instance_of Publish
+    end
+  end
+
+  context "observer should have update method" do
+    it "respond_to :update" do
+      @subscribe.should respond_to :update
+    end
+
+    it "have no update method should raise error" do
+      @publish.add_observer SubscribeNoUpdate.new
+      @publish.changed   
+      expect{ @publish.notify_observers('publish have changed !')}.to raise_error
     end
   end
 end
