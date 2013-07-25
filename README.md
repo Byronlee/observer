@@ -2,7 +2,7 @@
 
 TODO: Write a gem description
 
-[![Build Status](https://travis-ci.org/simlegate/observer.png?branch=master)](https://travis-ci.org/simlegate/observer)
+[![Build Status](https://travis-ci.org/simlegate/observer.png?branch=master)](https://travis-ci.org/simlegate/observer)  [![Code Climate](https://codeclimate.com/github/simlegate/observer.png)](https://codeclimate.com/github/simlegate/observer)
 
 ## Installation
 
