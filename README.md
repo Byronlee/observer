@@ -21,7 +21,6 @@ Or install it yourself as:
 ## Usage
 
 Define a `abservable`, like this
-
 ```ruby
 require 'observer'
 
@@ -32,37 +31,45 @@ class Publish
 end
 ```
 
-Define a `observer`, any Class only implementing a method named `update`
-   
-    class Subscribe
+Define a `observer`, any Class only implementing a method named `update`.
 
-      # publish params must be required
-      # and you can define more one params after first param
-      def update publish, msg
-        # coding after observable changed
-        p "receive message: #{msg}"
-      end
-    end
+```ruby  
+class Subscribe
 
+  # publish params must be required
+  # and you can define more one params after first param
+  # maybe have many publishs
+  def update publish, msg
+    # coding after observable changed
+    p "receive message: #{msg}"
+   end
+end
+```
 Add observer
-
-    publish   = Publish.new
-    subscribe = Subscribe.new
-    observers = publish.add_observer(subscribe)
-
+```ruby
+publish   = Publish.new
+subscribe = Subscribe.new
+observers = publish.add_observer(subscribe)
+```
 Remove observer
-
-    observers = publish.remove_observer(subscribe)
-
-Observable changed
-
-    publish.changed
-    publish.notify_observers(self, "publish have changed!")
-
+```ruby
+observers = publish.remove_observer(subscribe)
+```
+Notify observers when observable changed
+```ruby
+publish.changed
+publish.notify_observers(self, "publish have changed!")
+```
 Observers receive notify from observabe , update in Subscribe Class will be called.  
-    
-    # => receive message: publish have changed!
+```ruby
+# => receive message: publish have changed!
+```
 
+## Test
+
+```ruby
+bundle exec rspec spec/observer
+```
 ## Contributing
 
 1. Fork it
