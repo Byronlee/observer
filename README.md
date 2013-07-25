@@ -22,14 +22,15 @@ Or install it yourself as:
 
 Define a `abservable`, like this
 
-    require 'observer'
+```ruby
+require 'observer'
 
-    class Publish
-      include Observable
+class Publish
+  include Observable
 
-      # coding other
-    end
-
+  # coding other
+end
+```
 
 Define a `observer`, any Class only implementing a method named `update`
    
