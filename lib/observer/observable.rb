@@ -1,6 +1,7 @@
 module Observable
 
   attr_accessor :observers
+  attr_reader   :status
 
 #  def self.included(base)
 #    base.instance_eval do
@@ -12,6 +13,7 @@ module Observable
 
   def initialize
     @observers = []
+    @status    = false
   end
   
   def add_observer observer
@@ -22,8 +24,9 @@ module Observable
     @observers.delete(observer)
   end
 
+  # mark the status of observable changed
   def changed
-    @changed = true
+    @status = true
   end
 
   def notify_observers *arg
@@ -38,10 +41,12 @@ module Observable
 	end
       end
     end
+
+    @status = false
   end
 
   private
     def changed?
-      @changed == true
+      @status == true
     end
 end

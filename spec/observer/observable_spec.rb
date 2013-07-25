@@ -53,6 +53,22 @@ describe Observable do
     it "observer should receive instance of Observable" do
       @subscribe.publish.should be_instance_of Publish
     end
+
+    it "status of observable should be false" do
+      @publish.status.should == false
+    end
+  end
+
+  context "status of observable changes" do
+    
+    it "default status is false" do
+      @publish.status.should == false     
+    end
+
+    it "true after set observable changed" do
+      @publish.changed
+      @publish.status.should == true
+    end
   end
 
   context "observer should have update method" do
