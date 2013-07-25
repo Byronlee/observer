@@ -2,6 +2,8 @@
 
 TODO: Write a gem description
 
+[![Build Status](https://travis-ci.org/simlegate/observer.png?branch=master)](https://travis-ci.org/simlegate/observer)
+
 ## Installation
 
 Add this line to your application's Gemfile:
