@@ -6,17 +6,36 @@ describe Observable do
   before :each do
     @publish = Publish.new
     @subscribe = Subscribe.new
+    @observers = @publish.add_observer(@subscribe)
   end
 
-  it "observable should can be add observer" do
-    @publish.add_observer(@subscribe).count.should == 1
+  context "observable should can be add observers" do
+    it "the number of observers add 1" do
+      @observers.count.should ==  1
+    end
+
+    it "which one of what is instance of Subscribe" do
+      @observers.map{|o| o.should be_instance_of Subscribe}
+    end
+
+    it "is instance of Array " do
+      @observers.should be_instance_of Array
+    end
   end
 
-  it "observer added should be instance of Observer" do
-    @publish.add_observer(@subscribe).map{|o| o.should be_instance_of Subscribe}
-  end
+  context "observable should can be remove observers" do
+    before :each do
+      @remove_observer = @publish.remove_observer(@subscribe)
+    end
 
-  it "observable has many observers instance of Array " do
-    @publish.add_observer(@subscribe).should be_instance_of Array
+    it "the number of observers should - 1" do
+      @remove_observer.should be_instance_of Subscribe
+      # access +observers+ perssion 
+      @publish.observers.should be_empty
+    end
+
+    it "return nil when oberser does not exist" do
+      @publish.remove_observer(@subscribe).should be_nil
+    end
   end
 end
