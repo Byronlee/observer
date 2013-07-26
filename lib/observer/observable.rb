@@ -1,22 +1,7 @@
 module Observable
 
-  attr_accessor :observers
-  attr_reader   :status
-
-#  def self.included(base)
-#    base.instance_eval do
-#      define_method :initialize do
-#        @observers = []
-#      end
-#    end
-#  end
-
-  def initialize
-    @observers = []
-    @status    = false
-  end
-  
   def add_observer observer
+    @observers = [] unless defined? @observers
     @observers << observer
   end
 
@@ -45,8 +30,7 @@ module Observable
     @status = false
   end
 
-  private
-    def changed?
-      @status == true
-    end
+  def changed?
+    (defined? @status && @status) ? true : false
+  end
 end

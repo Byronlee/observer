@@ -32,7 +32,7 @@ describe Observable do
     it "the number of observers should - 1" do
       @remove_observer.should be_instance_of Subscribe
       # access +observers+ perssion 
-      @publish.observers.should be_empty
+      @publish.instance_variable_get(:@observers).should be_empty
     end
 
     it "return nil when oberser does not exist" do
@@ -55,19 +55,19 @@ describe Observable do
     end
 
     it "status of observable should be false" do
-      @publish.status.should == false
+      @publish.instance_variable_get(:@status).should == false
     end
   end
 
   context "status of observable changes" do
     
     it "default status is false" do
-      @publish.status.should == false     
+      @publish.instance_variable_get(:@status).should == nil
     end
 
     it "true after set observable changed" do
       @publish.changed
-      @publish.status.should == true
+      @publish.instance_variable_get(:@status).should == true 
     end
   end
 
