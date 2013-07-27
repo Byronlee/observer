@@ -2,7 +2,7 @@
 
 Implement observer pattern in Ruby
 
-[![Build Status](https://travis-ci.org/simlegate/observer.png?branch=master)](https://travis-ci.org/simlegate/observer)  [![Code Climate](https://codeclimate.com/github/simlegate/observer.png)](https://codeclimate.com/github/simlegate/observer)
+[![Build Status](https://travis-ci.org/simlegate/observer.png?branch=master)](https://travis-ci.org/simlegate/observer)  [![Code Climate](https://codeclimate.com/github/simlegate/observer.png)](https://codeclimate.com/github/simlegate/observer)  [![Coverage Status](https://coveralls.io/repos/simlegate/observer/badge.png)](https://coveralls.io/r/simlegate/observer)
 
 ## Installation
 
