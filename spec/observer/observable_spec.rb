@@ -1,3 +1,4 @@
+require 'spec_helper'
 require "#{File.dirname(__FILE__)}/../fixtures/publish"
 require "#{File.dirname(__FILE__)}/../fixtures/subscribe"
 require "#{File.dirname(__FILE__)}/../fixtures/subscribe_no_update"
