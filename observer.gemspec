@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Observer::VERSION
   spec.authors       = ["simlegate"]
   spec.email         = ["simlegate@163.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{Implement of Ruby Observer Pattern}
+  spec.summary       = %q{Implement of Ruby Observer Pattern}
   spec.homepage      = ""
   spec.license       = "MIT"
 
